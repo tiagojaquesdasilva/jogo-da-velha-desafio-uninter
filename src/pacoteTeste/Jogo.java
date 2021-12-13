@@ -2,10 +2,10 @@ package pacoteTeste;
 
 import java.util.Scanner;
 
-public class jogo {
+public class Jogo {
 
     public static void main(String[] args) {
-        Tabuleiro tab = new Tabuleiro();
+        Tabuleiro tabuleiro = new Tabuleiro();
         Jogador jogador = new Jogador();
 
         Scanner teclado = new Scanner(System.in);
@@ -25,29 +25,29 @@ public class jogo {
         }
 
         int vez = 1;
-        tab.visualizar();
+        tabuleiro.visualizar();
 
-        while (tab.situacao() == 0) {
+        while (tabuleiro.getVencedor() == 0) {
             if (vez == 1) { //Jogador Humano
-                jogadador.jogar(tab);
+                jogador.jogar(tabuleiro);
                 vez = 2;
 
             } else if (vez == 2) {
                 System.out.println("Jogada Computador");
-                comp.jogar(tab);
+                comp.jogar(tabuleiro);
                 vez = 1;
             }
-
-            tab.visualizar();
+            tabuleiro.visualizar();
+            if (tabuleiro.tabuleiroCompleto()) {
+                break;
+            }
 
         }
 
-        if (tab.situacao() > 0) {
-            "A Maquina Venceu"
-        }
-
-        if (tab.situacao() < 0) {
-            "Parabens você venceu"
+        if (tabuleiro.getVencedor() > 0) {
+            "Lamento, a Máquina venceu :("
+        } else if (tabuleiro.getVencedor()  < 0) {
+            "Parabéns você venceu!"
         }
 
         //Verificar a situacao e imprimir mensagem adequada informando quem venceu ou se empatou

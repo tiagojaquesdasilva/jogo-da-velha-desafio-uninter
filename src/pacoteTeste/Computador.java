@@ -1,7 +1,5 @@
 package pacoteTeste;
 
-import java.util.Scanner;
-
 public class Computador {
 	
 	public void jagar(Tabuleiro tab){
@@ -12,6 +10,6 @@ public class Computador {
        	
             int posicao = ; 
        	 
-        }while(Tabuleiro.checarposicao(int posicao, int jogadorDaVez )
+        }while(Tabuleiro.checarPosicao(int posicao, int jogadorDaVez )
    }
 }

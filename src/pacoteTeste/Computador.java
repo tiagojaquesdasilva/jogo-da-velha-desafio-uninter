@@ -1,15 +1,14 @@
 package pacoteTeste;
 
 public class Computador {
-	
-	public void jagar(Tabuleiro tab){
-		 
-        
-        
-        do{
-       	
-            int posicao = ; 
-       	 
-        }while(Tabuleiro.checarPosicao(int posicao, int jogadorDaVez )
-   }
+    protected int jogadorDaVez = 1;
+
+    public void jogar(Tabuleiro tabuleiro) {
+        int posicao = 0;
+
+        do {
+            posicao = posicao + 1;
+
+        } while (tabuleiro.checarPosicao(posicao, jogadorDaVez) && posicao <= 9);
+    }
 }

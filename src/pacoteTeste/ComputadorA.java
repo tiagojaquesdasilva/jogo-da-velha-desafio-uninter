@@ -1,5 +1,3 @@
 package pacoteTeste;
 
-public class ComputadorA extends Computador {
-
-}
+public class ComputadorA extends Computador { }

@@ -25,9 +25,10 @@ public class Jogo {
         }
 
         int vez = 1;
-        tabuleiro.visualizar();
+        System.out.println("Segue abaixo exemplo das posicoes a serem escolhidas: ");
+        tabuleiro.visualizarPosicoes();
 
-        while (tabuleiro.getVencedor() == 0) {
+        while (tabuleiro.situacao() == 0) {
             if (vez == 1) { //Jogador Humano
                 jogador.jogar(tabuleiro);
                 vez = 2;
@@ -37,6 +38,7 @@ public class Jogo {
                 comp.jogar(tabuleiro);
                 vez = 1;
             }
+
             tabuleiro.visualizar();
             if (tabuleiro.tabuleiroCompleto()) {
                 break;
@@ -44,12 +46,12 @@ public class Jogo {
 
         }
 
-        if (tabuleiro.getVencedor() > 0) {
-            "Lamento, a Máquina venceu :("
-        } else if (tabuleiro.getVencedor()  < 0) {
-            "Parabéns você venceu!"
+        if (tabuleiro.situacao() > 0) {
+            System.out.println("Lamento, a Máquina venceu :(");
+        } else if (tabuleiro.situacao() < 0) {
+            System.out.println("Parabéns você venceu!");
+        } else {
+            System.out.println("Empateee!!");
         }
-
-        //Verificar a situacao e imprimir mensagem adequada informando quem venceu ou se empatou
     }
 }

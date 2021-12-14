@@ -1,15 +1,15 @@
 package pacoteTeste;
 
 public class Tabuleiro {
-    //-1 - X - Jogador humano
-    //1 - O - Computador
-    //0 - Espa�o vazio
-
     private int[][] casas = new int[3][3];
     private int vencedor = 0;
 
     public int getVencedor() {
         return vencedor;
+    }
+
+    public void setVencedor(int vencedor) {
+        this.vencedor = vencedor;
     }
 
     private int checaLinhas() {
@@ -52,9 +52,24 @@ public class Tabuleiro {
     }
 
     public int situacao() {
-        //criar logica de verificar quem venceu ou se empatou ou se o jogo continua
+        if (getVencedor() != 0) return getVencedor();
 
-        return 0;
+        int situacao = 0;
+        situacao = checaLinhas();
+
+        if (situacao == 0) {
+            situacao = checaColunas();
+        }
+
+        if (situacao == 0) {
+            situacao = checaDiagonais();
+        }
+
+        if (situacao != 0) {
+            setVencedor(situacao);
+        }
+
+        return situacao;
     }
 
     public boolean checarPosicao(int posicao, int jogadorDaVez) {
@@ -129,7 +144,6 @@ public class Tabuleiro {
     }
 
     public void visualizar() {
-        System.out.println();
         for (int linha = 0; linha < 3; linha++) {
 
             for (int coluna = 0; coluna < 3; coluna++) {
@@ -143,13 +157,30 @@ public class Tabuleiro {
                 if (casas[linha][coluna] == 0) {
                     System.out.print("   ");
                 }
-
                 if (coluna == 0 || coluna == 1)
                     System.out.print("|");
             }
             System.out.println();
         }
+    }
 
+    public void visualizarPosicoes() {
+        int cont = 1;
+
+        for (int linha = 0; linha < 3; linha++) {
+
+            for (int coluna = 0; coluna < 3; coluna++) {
+                System.out.print(cont);
+
+                if (coluna == 0 || coluna == 1) {
+                    System.out.print("|");
+                }
+
+                cont++;
+            }
+
+            System.out.println();
+        }
     }
 
     public boolean tabuleiroCompleto() {

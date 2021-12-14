@@ -3,13 +3,12 @@ package pacoteTeste;
 import java.util.Scanner;
 
 public class Jogador {
-    int jogadorDaVez = -1;
+    private int jogadorDaVez = -1;
 
     public void jogar(Tabuleiro tabuleiro) {
         Scanner tecla = new Scanner(System.in);
         int posicao;
         System.out.println("-------------");
-
 
         do {
 
